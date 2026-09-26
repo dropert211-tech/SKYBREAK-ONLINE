@@ -1,0 +1,12 @@
+# Copy these as Windows environment variables before starting server.py
+
+SKYBREAK_SERVER_NAME=EU // ZONE NODE
+SKYBREAK_PUBLIC_ADDRESS=example.com:8001
+
+# Optional: central master directory
+SKYBREAK_MASTER_URL=http://master.example.com:8000
+SKYBREAK_MASTER_TOKEN=change-me
+
+# Optional port overrides
+SKYBREAK_HTTP_PORT=8000
+SKYBREAK_WS_PORT=8001

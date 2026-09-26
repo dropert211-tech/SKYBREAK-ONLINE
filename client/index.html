@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SKYBREAK // ZONE DRONE ARCADE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="boot">
+  <div class="boot-grid"></div>
+  <div class="boot-content">
+    <div class="boot-logo">SKYBREAK</div>
+    <div class="boot-sub">ZONE DRONE NETWORK // CHERNOBYL</div>
+    <div class="boot-bar"><i></i></div>
+    <div class="boot-meta">INITIALIZING FIELD LINK…</div>
+  </div>
+</div>
+
+<div id="menu" class="screen hidden">
+  <div class="zone-bg"></div><div class="zone-fog"></div><div class="zone-noise"></div>
+  <div class="hero">
+    <div class="brand-row">
+      <div><div class="eyebrow">ZONE // CHORNOBYL EXCLUSION AREA</div><h1>SKY<span>BREAK</span></h1></div>
+      <div class="rad-mark" aria-hidden="true">☢</div>
+    </div>
+    <p class="lead">Аркадные полёты над Зоной. Локальная сеть, Radmin VPN и глобальный список пилотов.</p>
+
+    <div class="zone-status">
+      <span class="status-dot"></span><b id="lobbyStatus">Сервер: проверка…</b>
+      <span class="sep">|</span><span id="globalCount">Пилоты мира: —</span>
+      <button id="refreshGlobal" class="tiny-btn">ОБНОВИТЬ</button>
+    </div>
+
+    <div class="cards">
+      <button data-mode="pvp" class="mode active"><b>PvP</b><small>Охота · свободная зона</small></button>
+      <button data-mode="coop" class="mode"><b>CO-OP</b><small>Совместный вылет</small></button>
+    </div>
+
+    <div class="network-panel">
+      <div class="network-title"><span>FIELD LINK</span><small>INTERNET / RADMIN VPN</small></div>
+      <div class="room-line">
+        <input id="name" placeholder="Имя пилота" maxlength="20" value="Pilot">
+        <input id="server" placeholder="Адрес сервера: 26.x.x.x:8001" value="">
+        <input id="room" placeholder="Код комнаты" maxlength="24">
+        <button id="create">СОЗДАТЬ</button>
+        <button id="join">ВОЙТИ</button>
+      </div>
+      <div class="network-help">Radmin: укажи Radmin IP хоста и порт <b>8001</b>. Интернет: укажи публичный IP/домен сервера.</div>
+    </div>
+
+    <div class="global-panel">
+      <div class="global-head"><span>GLOBAL STALKER NETWORK</span><small id="globalUpdated">OFFLINE</small></div>
+      <div id="globalPlayers" class="global-players">
+        <div class="empty-state">СКАНИРОВАНИЕ ЭФИРА…</div>
+      </div>
+    </div>
+
+    <div class="credits">CHERNOBYL REACTOR 4 // ZONE SIGNAL // v3.0 NETWORK BUILD</div>
+  </div>
+</div>
+
+<div id="lobby" class="screen hidden">
+  <div class="zone-bg dim"></div><div class="zone-noise"></div>
+  <div class="panel lobby-panel">
+    <div class="eyebrow">FIELD LOBBY // ZONE NETWORK</div>
+    <h2 id="roomTitle">ROOM</h2>
+    <div class="room-meta"><span id="modeLabel">PVP</span><span id="roomNet">NETWORK</span></div>
+    <div id="roster"></div>
+    <div class="lobby-actions"><button id="ready">ГОТОВ</button><button id="start">НАЧАТЬ</button><button id="back">НАЗАД</button></div>
+    <div class="hint">WASD — движение · мышь — обзор · SPACE — импульс · ЛКМ — удар · ESC — пауза</div>
+  </div>
+</div>
+
+<div id="game" class="hidden">
+  <canvas id="scene"></canvas>
+  <div class="game-vignette"></div><div class="game-scan"></div>
+  <div id="hud">
+    <div class="hud-top">
+      <div><span class="label">SKYBREAK // ZONE</span><span id="modeLabelGame">PVP</span></div>
+      <div class="hud-net"><span id="onlineHud">0 PILOTS</span><span id="fps">60 FPS</span></div>
+    </div>
+    <div class="hud-bottom">
+      <div class="health"><span>HULL</span><div><i id="hpbar"></i></div><b id="hptext">100</b></div>
+      <div class="crosshair"></div>
+      <div class="telemetry"><span id="speed">SPD 0</span><span id="alt">ALT 18</span></div>
+    </div>
+  </div>
+  <div id="cinematic" class="hidden">
+    <div class="cin-vignette"></div><div class="cin-lines"></div>
+    <div class="cin-zone">ZONE // CHERNOBYL</div>
+    <div class="cin-center"><div id="cinTitle" class="cin-title">SKYBREAK</div><div id="cinSub" class="cin-sub">OPERATION // FIRST FLIGHT</div><div id="cinHint" class="cin-hint">ЛКМ / ENTER — пропустить</div></div>
+  </div>
+  <div id="pause" class="overlay hidden"><div class="panel"><h2>ПАУЗА</h2><p>ESC — продолжить</p><button id="leave">В ЛОББИ</button></div></div>
+</div>
+<script type="module" src="app.js"></script>
+</body>
+</html>
